@@ -19,56 +19,76 @@ print(f"File name: {fname}")
 print(f"Line Count: {line_count}")
 print(f"Word Count: {word_count}")
 
-
-fname = './data/michelle_obama_speech.txt'
+fname = './data/hacker_news.csv'
 fhand = open(fname, 'r')
-text = fhand.read()
-lines = text.split('\n')
-line_count = len(lines)
-word_count = 0
+lines = csv.reader(fhand, delimiter=',')
+python_count = 0
+js_count = 0
+java_count = 0
 for line in lines:
-    words = line.split()
-    for word in words:
-        if word == " ":
-            continue
-        word_count += 1
-print(f"File name: {fname}")
-print(f"Line Count: {line_count}")
-print(f"Word Count: {word_count}")
+    for item in line:
+        words = item.split()
+        if 'python' in words or 'Python' in words:
+            python_count += 1
+        if 'javascript' in words or 'Javascript' in words or 'JavaScript' in words:
+            js_count += 1
+        if 'java' in words or 'Java' in words:
+            java_count += 1
+print(f"Number of Lines having python are {python_count}")
+print(f"Number of Lines having javascript are {js_count}")
+print(f"Number of Lines having java are {java_count}")
+
+#End Here
+##############################################################
+# fname = './data/michelle_obama_speech.txt'
+# fhand = open(fname, 'r')
+# text = fhand.read()
+# lines = text.split('\n')
+# line_count = len(lines)
+# word_count = 0
+# for line in lines:
+#     words = line.split()
+#     for word in words:
+#         if word == " ":
+#             continue
+#         word_count += 1
+# print(f"File name: {fname}")
+# print(f"Line Count: {line_count}")
+# print(f"Word Count: {word_count}")
 
 
-fname = './data/donald_speech.txt'
-fhand = open(fname, 'r')
-text = fhand.read()
-lines = text.split('\n')
-line_count = len(lines)
-word_count = 0
-for line in lines:
-    words = line.split()
-    for word in words:
-        if word == " ":
-            continue
-        word_count += 1
-print(f"File name: {fname}")
-print(f"Line Count: {line_count}")
-print(f"Word Count: {word_count}")
+# fname = './data/donald_speech.txt'
+# fhand = open(fname, 'r')
+# text = fhand.read()
+# lines = text.split('\n')
+# line_count = len(lines)
+# word_count = 0
+# for line in lines:
+#     words = line.split()
+#     for word in words:
+#         if word == " ":
+#             continue
+#         word_count += 1
+# print(f"File name: {fname}")
+# print(f"Line Count: {line_count}")
+# print(f"Word Count: {word_count}")
 
 
-fname = './data/melina_trump_speech.txt'
-fhand = open(fname, 'r')
-text = fhand.read()
-lines = text.split('\n')
-line_count = len(lines)
-word_count = 0
-for line in lines:
-    words = line.split()
-    for word in words:
-        if word == " ":
-            continue
-        word_count += 1
-print(f"File name: {fname}")
-print(f"Line Count: {line_count}")
-print(f"Word Count: {word_count}")
+# fname = './data/melina_trump_speech.txt'
+# fhand = open(fname, 'r')
+# text = fhand.read()
+# lines = text.split('\n')
+# line_count = len(lines)
+# word_count = 0
+# for line in lines:
+#     words = line.split()
+#     for word in words:
+#         if word == " ":
+#             continue
+#         word_count += 1
+# print(f"File name: {fname}")
+# print(f"Line Count: {line_count}")
+# print(f"Word Count: {word_count}")
 
 
 def most_spoken_languages(fname, n):
